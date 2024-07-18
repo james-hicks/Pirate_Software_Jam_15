@@ -10,6 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _turnSpeed = 360f;
     [SerializeField] private Transform _playerModel;
 
+    [Header("Potion Throwing")]
+    [SerializeField] private float _throwForce;
+    [SerializeField] private Transform _throwPoint;
+    [SerializeField] private GameObject _potionPrefab;
+    [SerializeField] private float _throwCooldown = 2f;
+    private float _lastThrowTime = -Mathf.Infinity;
+
     private Vector3 moveInput;
 
     private Rigidbody _rb;
@@ -42,6 +49,12 @@ public class PlayerController : MonoBehaviour
         _playerModel.rotation = Quaternion.RotateTowards(_playerModel.rotation, rot, _turnSpeed * Time.deltaTime);
     }
 
+    private void Throw()
+    {
+        GameObject thrownObject = Instantiate(_potionPrefab, _throwPoint.position, Quaternion.identity);
+        thrownObject.GetComponent<Rigidbody>().AddForce(_throwPoint.forward * _throwForce, ForceMode.Impulse);
+    }
+
     #region Input
     private void OnMove(InputValue value)
     {
@@ -51,12 +64,17 @@ public class PlayerController : MonoBehaviour
      
     private void OnThrow(InputValue value)
     {
+        if (Time.time - _lastThrowTime > _throwCooldown)
+        {
+            _lastThrowTime = Time.time;
+            Throw();
+        }
 
     }
 
     private void OnInteract(InputValue value)
     {
-
+        Debug.LogWarning("Interact not implemented yet");
     }
     #endregion
 }
