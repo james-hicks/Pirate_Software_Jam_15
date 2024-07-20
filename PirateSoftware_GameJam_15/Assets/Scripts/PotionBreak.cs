@@ -8,7 +8,7 @@ public class PotionBreak : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            GetComponent<Rigidbody>().isKinematic = true;
+            Destroy(gameObject, 0.1f);
         }
     }
 }

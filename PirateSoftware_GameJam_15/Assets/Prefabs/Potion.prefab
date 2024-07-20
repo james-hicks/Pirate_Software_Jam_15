@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5733182373270592390}
   - component: {fileID: 2536656575662376868}
   - component: {fileID: 4145344690756603261}
+  - component: {fileID: 8060839547774156618}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Untagged
@@ -95,6 +96,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24b5940911696e4dbbcb4223d37609a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8060839547774156618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7640045897798167401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af115275b171a840bd43269c1b8d271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintColor: {r: 0.1981132, g: 2, b: 0.32424515, a: 1}
+  minRadius: 2.6
+  maxRadius: 3.4
+  strength: 0.5
+  hardness: 0.1
 --- !u!1 &8073033561268656108
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +153,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8073033561268656108}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &105475128728698134
 MeshRenderer:
   m_ObjectHideFlags: 0
