@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8961485477866591682}
   - component: {fileID: 1054279767265684990}
   - component: {fileID: 6715353193083192583}
+  - component: {fileID: 945767369683910986}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -138,6 +139,27 @@ MonoBehaviour:
   _potionPrefab: {fileID: 7640045897798167401, guid: 7db149be0965f654ca9737d05c176a48,
     type: 3}
   _throwCooldown: 2
+--- !u!95 &945767369683910986
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360352265842319116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7fc1de3e9669ce745a24a2b44fd0e507, type: 3}
+  m_Controller: {fileID: 9100000, guid: 64808dc4aa5d16b4a84d57a4df7d06a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5570933317301699932
 GameObject:
   m_ObjectHideFlags: 0

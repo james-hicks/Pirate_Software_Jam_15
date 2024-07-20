@@ -20,10 +20,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveInput;
 
     private Rigidbody _rb;
+    private Animator _animator;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _rb.MovePosition(transform.position + moveInput.ToIso() * moveInput.normalized.magnitude * _speed * Time.deltaTime);
+        _animator.SetBool("Run", moveInput != Vector3.zero);
     }
     private void Look()
     {
@@ -49,7 +52,7 @@ public class PlayerController : MonoBehaviour
         _playerModel.rotation = Quaternion.RotateTowards(_playerModel.rotation, rot, _turnSpeed * Time.deltaTime);
     }
 
-    private void Throw()
+    public void Throw()
     {
         GameObject thrownObject = Instantiate(_potionPrefab, _throwPoint.position, Quaternion.identity);
         thrownObject.GetComponent<Rigidbody>().AddForce(_throwPoint.forward * _throwForce, ForceMode.Impulse);
@@ -67,7 +70,8 @@ public class PlayerController : MonoBehaviour
         if (Time.time - _lastThrowTime > _throwCooldown)
         {
             _lastThrowTime = Time.time;
-            Throw();
+            _animator.SetTrigger("Throw");
+            //Throw();
         }
 
     }
