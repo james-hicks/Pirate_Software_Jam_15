@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
         Vector3 jumpVelocity = Vector3.zero;
         jumpVelocity.y = _jumpForce;
         _rb.AddForce(jumpVelocity, ForceMode.Impulse);
+        _animator.SetTrigger("Jump");
     }
 
     private bool CheckGrounded()
