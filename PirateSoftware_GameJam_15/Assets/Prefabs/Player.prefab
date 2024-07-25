@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 6
-  _turnSpeed: 360
+  _turnSpeed: 720
   _jumpForce: 25
   _gravityScale: -40
   _playerModel: {fileID: 6167802100696691356}
