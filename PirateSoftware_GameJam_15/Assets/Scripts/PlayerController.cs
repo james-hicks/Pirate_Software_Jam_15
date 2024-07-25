@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _turnSpeed = 360f;
+    [SerializeField] private float _jumpForce = 4;
+    [SerializeField] private float _gravityScale = -15f;
     [SerializeField] private Transform _playerModel;
 
     [Header("Potion Throwing")]
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveInput;
 
     private Rigidbody _rb;
+    private bool _isGrounded => CheckGrounded();
     private Animator _animator;
 
     private void Start()
@@ -37,6 +40,12 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+
+        if (!_isGrounded)
+        {
+            Vector3 gravity = Vector3.up * _gravityScale;
+            _rb.AddForce(gravity, ForceMode.Acceleration);
+        }
     }
 
     private void Move()
@@ -58,7 +67,27 @@ public class PlayerController : MonoBehaviour
         thrownObject.GetComponent<Rigidbody>().AddForce(_throwPoint.forward * _throwForce, ForceMode.Impulse);
     }
 
-    #region Input
+    public void Jump()
+    {
+        Vector3 jumpVelocity = Vector3.zero;
+        jumpVelocity.y = _jumpForce;
+        _rb.AddForce(jumpVelocity, ForceMode.Impulse);
+    }
+
+    private bool CheckGrounded()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), -transform.up, out hit, 0.3f))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+        #region Input
     private void OnMove(InputValue value)
     {
         Vector2 Input = value.Get<Vector2>();
@@ -79,6 +108,15 @@ public class PlayerController : MonoBehaviour
     private void OnInteract(InputValue value)
     {
         Debug.LogWarning("Interact not implemented yet");
+    }
+
+    private void OnJump(InputValue value)
+    {
+        if (_isGrounded)
+        {
+            Jump();
+        }
+
     }
     #endregion
 }
