@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1054279767265684990}
   - component: {fileID: 6715353193083192583}
   - component: {fileID: 945767369683910986}
+  - component: {fileID: 4503965968213408240}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +141,7 @@ MonoBehaviour:
   _throwPoint: {fileID: 2178094307322873331}
   _potionPrefab: {fileID: 7640045897798167401, guid: 7db149be0965f654ca9737d05c176a48,
     type: 3}
-  _throwCooldown: 2
+  _throwCooldown: 0.5
 --- !u!95 &945767369683910986
 Animator:
   serializedVersion: 5
@@ -162,6 +163,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!81 &4503965968213408240
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360352265842319116}
+  m_Enabled: 1
 --- !u!1 &5570933317301699932
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +274,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6167802100696691356}
     m_Modifications:
+    - target: {fileID: 1984613229582967649, guid: 0bf65c3d908a99142a5d348211e479a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -95.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984613229582967649, guid: 0bf65c3d908a99142a5d348211e479a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 37.29
+      objectReference: {fileID: 0}
     - target: {fileID: 8596558181971458622, guid: 0bf65c3d908a99142a5d348211e479a1,
         type: 3}
       propertyPath: m_LocalPosition.x

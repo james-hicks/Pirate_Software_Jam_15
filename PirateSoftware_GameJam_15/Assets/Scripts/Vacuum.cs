@@ -96,7 +96,17 @@ public class Vacuum : MonoBehaviour{
     {
         while(!grounded || obstructedPath)
         {
-            gameObject.transform.Rotate(0, _turnSpeed, 0);
+            int rand = Random.Range(0, 1);
+
+            if(rand == 0)
+            {
+                gameObject.transform.Rotate(0, _turnSpeed, 0);
+            }
+            else
+            {
+                gameObject.transform.Rotate(0, -_turnSpeed, 0);
+            }
+
 
             yield return new WaitForEndOfFrame();
         }

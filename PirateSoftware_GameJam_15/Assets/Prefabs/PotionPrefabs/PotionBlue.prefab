@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4145344690756603261}
   - component: {fileID: 8060839547774156618}
   m_Layer: 0
-  m_Name: Potion
+  m_Name: PotionBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5517767196673985750}
+  - {fileID: 6943504627577564303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5733182373270592390
@@ -108,9 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af115275b171a840bd43269c1b8d271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: {r: 0.1981132, g: 2, b: 0.32424515, a: 1}
-  minRadius: 2.6
-  maxRadius: 3.4
+  paintColor: {r: 0.1989529, g: 0.26132542, b: 2, a: 1}
+  potion: {fileID: 7716803643390490165}
+  minRadius: 3
+  maxRadius: 3.5
   strength: 0.5
   hardness: 0.1
 --- !u!1 &8073033561268656108
@@ -130,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5517767196673985750
 Transform:
   m_ObjectHideFlags: 0
@@ -196,3 +198,88 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &8105794120309472747
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8547374301091825948}
+    m_Modifications:
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975401047660956638, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_Name
+      value: P_Potion_Bottle_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562941354515402735, guid: c237de4858702874685d4b6200868ae6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6f7a86b95a7e6745bfcc2d1e946be3f, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c237de4858702874685d4b6200868ae6, type: 3}
+--- !u!4 &6943504627577564303 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1162448111377076580, guid: c237de4858702874685d4b6200868ae6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8105794120309472747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7716803643390490165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1975401047660956638, guid: c237de4858702874685d4b6200868ae6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8105794120309472747}
+  m_PrefabAsset: {fileID: 0}

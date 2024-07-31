@@ -15,15 +15,19 @@ public class PlayerController : MonoBehaviour
     [Header("Potion Throwing")]
     [SerializeField] private float _throwForce;
     [SerializeField] private Transform _throwPoint;
-    [SerializeField] private GameObject _potionPrefab;
+    public GameObject _potionPrefab;
     [SerializeField] private float _throwCooldown = 2f;
     private float _lastThrowTime = -Mathf.Infinity;
+
+    public bool HasPotion = false;
 
     private Vector3 moveInput;
 
     private Rigidbody _rb;
     private bool _isGrounded => CheckGrounded();
     private Animator _animator;
+
+    public bool HasControl = true;
 
     private void Start()
     {
@@ -33,12 +37,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!HasControl) return;
         Look();
     }
 
 
     private void FixedUpdate()
     {
+        if (!HasControl) return;
         Move();
 
         if (!_isGrounded)
@@ -88,6 +94,12 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    public void PickupPotion()
+    {
+        HasPotion = true;
+        _animator.SetTrigger("Pickup");
+    }
         #region Input
     private void OnMove(InputValue value)
     {
@@ -97,6 +109,7 @@ public class PlayerController : MonoBehaviour
      
     private void OnThrow(InputValue value)
     {
+        if (!HasPotion) return;
         if (Time.time - _lastThrowTime > _throwCooldown)
         {
             _lastThrowTime = Time.time;
@@ -118,6 +131,18 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
+    }
+
+    private void OnPause(InputValue value)
+    {
+        if (MenuManager.instance.GameIsPaused)
+        {
+            MenuManager.instance.ResumeGame();
+        }
+        else
+        {
+            MenuManager.instance.PauseGame();
+        }
     }
     #endregion
 }
