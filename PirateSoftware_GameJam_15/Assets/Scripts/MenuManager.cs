@@ -58,7 +58,8 @@ public class MenuManager : MonoBehaviour
 
     public void FinishedGame()
     {
-        GameCamera.SetActive(false);
         GameFinishedScreen.GetComponent<Animator>().SetBool("GameEnd", true);
+        GameCamera.SetActive(false);
+
     }
 }

@@ -77,9 +77,14 @@ public class Vacuum : MonoBehaviour{
 
 
             yield return new WaitForEndOfFrame();
+            int rand = Random.Range(0, 1000);
+            if (rand == 0)
+            {
+                gameObject.transform.Rotate(0, _turnSpeed, 0);
+            }
 
 
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
                 Paintable p = hit.collider.GetComponent<Paintable>();
                 if (p != null)
@@ -96,15 +101,22 @@ public class Vacuum : MonoBehaviour{
     {
         while(!grounded || obstructedPath)
         {
-            int rand = Random.Range(0, 1);
-
+            int rand = Random.Range(0, 4);
             if(rand == 0)
             {
                 gameObject.transform.Rotate(0, _turnSpeed, 0);
             }
-            else
+            else if(rand == 1)
             {
                 gameObject.transform.Rotate(0, -_turnSpeed, 0);
+            }
+            else if(rand == 2)
+            {
+                gameObject.transform.Rotate(0, 180, 0);
+            }
+            else
+            {
+                gameObject.transform.Rotate(0, 135, 0);
             }
 
 

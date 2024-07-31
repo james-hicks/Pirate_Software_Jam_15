@@ -8,6 +8,7 @@ public class PotionBreak : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            if(PotionSound.instance != null) PotionSound.instance.PlaySound();
             Destroy(gameObject, 0.1f);
         }
     }
